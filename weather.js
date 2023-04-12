@@ -16,5 +16,5 @@ function show(data) {
 
   document.getElementById(
     "contaner"
-  ).innerHTML = `<h1>Country" Name: ${country}</h1> <h1>City Name: ${city_name}</h1> <h1>Temp: ${temo_c} C</h1>`;
+  ).innerHTML = `<h1>Country Name: ${country}</h1> <h1>City Name: ${city_name}</h1> <h1>Temp: ${temo_c} C</h1>`;
 }
