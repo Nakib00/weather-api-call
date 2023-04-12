@@ -1,0 +1,4 @@
+8574c3e9bd8bc148b2516404e61e931a = weather key api
+
+
+https://api.openweathermap.org/data/2.5/weather?q=Dhaka&appid=8574c3e9bd8bc148b2516404e61e931a
