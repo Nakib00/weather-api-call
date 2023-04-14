@@ -1,6 +1,6 @@
 function connect() {
   var userText = document.getElementById("user-input").value;
-  var userText = "Feni"
+  // var userText = "Feni"
 
   var url = `https://api.openweathermap.org/data/2.5/weather?q=${userText}&appid=8574c3e9bd8bc148b2516404e61e931a`;
 
