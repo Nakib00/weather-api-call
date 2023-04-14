@@ -18,6 +18,12 @@ function connect() {
     .then((data) => show(data));
 }
 
+const weather = {};
+
+weather.temperature = {
+    unit : "celsius"
+}
+
 // Show weather data
 function show(data) {
   var city_name = data["name"];
@@ -34,23 +40,16 @@ function show(data) {
   // var temp_max = (temp_min_k - 273.15).toFixed(2)
   var pressure = data["main"]["pressure"];
   var deg = data["wind"]["deg"];
-
-  var icone_array = ["01d","01n","02d","02n","03d","03n","04d","04n","09d","09n","10d","10n","11d","11n","13d","13n","50d","50n","1232n"];
-  var iconecode
-
-  for(var i = 0; i<icone_array.length; i++) {
-    if(icone_array[i] == iconecode){
-
-    }
-  }
-
+  weather.iconId = data.weather[0].icon;
+  weather.description = data.weather[0].description;
+  const iconElement = document.querySelector(".weather-icon");
 // show data in the html element
   document.getElementById("tamp").innerHTML = temp_c;
   document.getElementById("humi").innerHTML = humidity;
   document.getElementById("wind").innerHTML = wind;
-  document.getElementById("city").innerHTML = country;
+  document.getElementById("city").innerHTML = city_name;
   document.getElementById("feel_like").innerHTML = feel_like;
   document.getElementById("pressure").innerHTML = pressure;
   document.getElementById("deg").innerHTML = deg;
-
+  iconElement.innerHTML = iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
 }
