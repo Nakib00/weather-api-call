@@ -1,7 +1,8 @@
+const apikey = '8574c3e9bd8bc148b2516404e61e931a'
 // Default city
 var userText = "Feni"
 
-var url = `https://api.openweathermap.org/data/2.5/weather?q=${userText}&appid=8574c3e9bd8bc148b2516404e61e931a`;
+var url = `https://api.openweathermap.org/data/2.5/weather?q=${userText}&appid=${apikey}`;
 
   fetch(url)
     .then((res) => res.json())
@@ -11,7 +12,7 @@ var url = `https://api.openweathermap.org/data/2.5/weather?q=${userText}&appid=8
 function connect() {
   var userText = document.getElementById("user-input").value;
 
-  var url = `https://api.openweathermap.org/data/2.5/weather?q=${userText}&appid=8574c3e9bd8bc148b2516404e61e931a`;
+  var url = `https://api.openweathermap.org/data/2.5/weather?q=${userText}&appid=${apikey}`;
 
   fetch(url)
     .then((res) => res.json())
@@ -20,16 +21,11 @@ function connect() {
 
 const weather = {};
 
-weather.temperature = {
-    unit : "celsius"
-}
-
 // Show weather data
 function show(data) {
   var city_name = data["name"];
   var temp_k = data["main"]["temp"];
   var temp_c = (temp_k - 273.15).toFixed(2);
-  var country = data["weather"]["icon"];
   var humidity = data["main"]["humidity"];
   var wind = data["wind"]["speed"];
   var feel_like_t = data["main"]["feels_like"];
@@ -43,6 +39,7 @@ function show(data) {
   weather.iconId = data.weather[0].icon;
   weather.description = data.weather[0].description;
   const iconElement = document.querySelector(".weather-icon");
+
 // show data in the html element
   document.getElementById("tamp").innerHTML = temp_c;
   document.getElementById("humi").innerHTML = humidity;
@@ -51,5 +48,5 @@ function show(data) {
   document.getElementById("feel_like").innerHTML = feel_like;
   document.getElementById("pressure").innerHTML = pressure;
   document.getElementById("deg").innerHTML = deg;
-  iconElement.innerHTML = iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
+  iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
 }
