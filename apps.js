@@ -39,6 +39,7 @@ function show(data) {
   weather.iconId = data.weather[0].icon;
   weather.description = data.weather[0].description;
   const iconElement = document.querySelector(".weather-icon");
+  const weatherdiscription = document.querySelector(".weather-discription")
 
 // show data in the html element
   document.getElementById("tamp").innerHTML = temp_c;
@@ -49,4 +50,5 @@ function show(data) {
   document.getElementById("pressure").innerHTML = pressure;
   document.getElementById("deg").innerHTML = deg;
   iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
+  weatherdiscription.innerHTML = `<h7>${weather.description}</h7>`
 }
